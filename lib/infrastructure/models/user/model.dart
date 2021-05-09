@@ -1,5 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../domain/entities/user/entity.dart';
+
+part 'converters.dart';
 part 'model.freezed.dart';
 part 'model.g.dart';
 
