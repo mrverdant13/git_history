@@ -55,6 +55,9 @@ dev_dependencies:
   # Routing
   auto_route_generator: any
 
+  # Testing
+  mocktail: ^0.1.2
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
