@@ -46,6 +46,7 @@ dev_dependencies:
 
   # Immutable elements
   freezed: ^0.14.1+3
+  kt_dart: ^0.9.0
 
   get_it: ^6.1.1
 
