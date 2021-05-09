@@ -28,6 +28,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Functional programming
+  dartz: ^0.10.0-nullsafety.1
+
   # Routing
   auto_route: ^2.2.0
 
