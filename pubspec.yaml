@@ -51,6 +51,9 @@ dependencies:
   # State management
   flutter_bloc: ^7.0.0
 
+  # UI
+  flutter_svg: ^0.22.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
