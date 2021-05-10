@@ -43,6 +43,9 @@ dependencies:
   # Serialization
   json_annotation: ^4.0.1
 
+  # State management
+  flutter_bloc: ^7.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -67,6 +70,7 @@ dev_dependencies:
   json_serializable: ^4.1.1
 
   # Testing
+  bloc_test: ^8.0.0
   mocktail: ^0.1.2
 
 # For information on the generic Dart part of this file, see the
