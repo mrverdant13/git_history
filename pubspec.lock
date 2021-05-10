@@ -278,7 +278,7 @@ packages:
     source: hosted
     version: "2.1.0"
   get_it:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: get_it
       url: "https://pub.dartlang.org"
@@ -341,7 +341,7 @@ packages:
     source: hosted
     version: "4.1.1"
   kt_dart:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: kt_dart
       url: "https://pub.dartlang.org"
@@ -432,7 +432,7 @@ packages:
     source: hosted
     version: "1.5.0"
   provider:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: provider
       url: "https://pub.dartlang.org"
