@@ -139,6 +139,7 @@ THEN an exception is thrown
               },
             ),
           ).called(1);
+          verifyNoMoreInteractions(mockDio);
         },
       );
     },
