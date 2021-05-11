@@ -11,10 +11,10 @@ import 'flavors.dart';
 
 Future<void> startApp(Flavor flavor) async {
   runZonedGuarded(
-    () {
+    () async {
       WidgetsFlutterBinding.ensureInitialized();
 
-      getIt.registerSingleton(flavor);
+      await injectDependencies(flavor);
 
       Bloc.observer = AppBlocObserver();
 
