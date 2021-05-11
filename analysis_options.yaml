@@ -6,6 +6,7 @@ analyzer:
     missing_return: error
     must_be_immutable: error
   exclude:
+    - lib/**.g.dart
     - lib/**.gr.dart
 
 linter:
