@@ -22,7 +22,7 @@ class RepositoriesRepoImp extends RepositoriesRepo {
     late final Set<RepositoryR> repositoriesR;
 
     try {
-      repositoriesR = await repositoriesRDS.getRepositoriesByRepositoryname(
+      repositoriesR = await repositoriesRDS.getRepositoriesByNameAndOwner(
         repositoryNameAndOwner,
       );
     } on GetRepositoriesException catch (e) {

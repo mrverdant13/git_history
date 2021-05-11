@@ -12,7 +12,7 @@ abstract class RepositoriesRDS {
   ///
   /// Throws [GetRepositoriesException]:
   /// - [GetRepositoriesException.offline]: No internet connection.
-  Future<Set<RepositoryR>> getRepositoriesByRepositoryname(
+  Future<Set<RepositoryR>> getRepositoriesByNameAndOwner(
     RepositoryNameAndOwner repositoryNameAndOwner,
   );
 }

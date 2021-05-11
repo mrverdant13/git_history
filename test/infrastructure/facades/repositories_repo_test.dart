@@ -65,7 +65,7 @@ THEN a collection of repositories with names similar to the provided repository 
           };
 
           when(
-            () => mockRepositoriesRDS.getRepositoriesByRepositoryname(
+            () => mockRepositoriesRDS.getRepositoriesByNameAndOwner(
               any(),
             ),
           ).thenAnswer(
@@ -90,7 +90,7 @@ THEN a collection of repositories with names similar to the provided repository 
           );
           verify(
             () => mockRepositoriesRDS
-                .getRepositoriesByRepositoryname(repoNameAndOwner),
+                .getRepositoriesByNameAndOwner(repoNameAndOwner),
           ).called(1);
           verifyNoMoreInteractions(mockRepositoriesRDS);
         },
@@ -115,7 +115,7 @@ THEN a failure is returned
           );
 
           when(
-            () => mockRepositoriesRDS.getRepositoriesByRepositoryname(any()),
+            () => mockRepositoriesRDS.getRepositoriesByNameAndOwner(any()),
           ).thenThrow(
             const GetRepositoriesException.offline(),
           );
@@ -132,7 +132,7 @@ THEN a failure is returned
             ),
           );
           verify(
-            () => mockRepositoriesRDS.getRepositoriesByRepositoryname(any()),
+            () => mockRepositoriesRDS.getRepositoriesByNameAndOwner(any()),
           ).called(1);
           verifyNoMoreInteractions(mockRepositoriesRDS);
         },
