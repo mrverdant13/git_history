@@ -5,7 +5,3 @@ abstract class FutureUseCase<FailureType, ReturnType, ParamsType> {
 
   Future<Either<FailureType, ReturnType>> call(ParamsType params);
 }
-
-class NoParams {
-  const NoParams();
-}
