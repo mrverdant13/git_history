@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../state_management/cubit/users_getter/users_getter_cubit.dart';
+import 'user_tile.dart';
 
 class UsersList extends StatelessWidget {
   const UsersList();
@@ -20,11 +21,9 @@ class UsersList extends StatelessWidget {
               : Column(
                   children: [
                     ...users.iter.map(
-                      (user) => ListTile(
-                        contentPadding: const EdgeInsets.all(10.0),
-                        leading: Image.network(user.avatarUrl),
-                        title: Text(user.username),
-                        onTap: () {},
+                      (user) => UserTile(
+                        key: ValueKey(user.id),
+                        user: user,
                       ),
                     ),
                   ],
