@@ -1,10 +1,12 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/domain/entities/user/entity.dart';
 import 'package:flutter_app_template/presentation/screens/selection/screen.dart';
 import 'package:flutter_app_template/presentation/screens/selection/widgets/user_tile.dart';
 import 'package:flutter_app_template/state_management/cubit/users_getter/users_getter_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
+import 'package:kt_dart/collection.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/pump_screen.dart';
@@ -163,6 +165,52 @@ AND a users search is triggered
               verify(
                 () => mockUsersGetterCubit.getUsersByUsername('user'),
               ).called(1);
+            },
+          );
+        },
+      );
+      group(
+        '''
+
+AND a successful users search''',
+        () {
+          const foundUsersCount = 3;
+          setUp(
+            () {
+              // ARRANGE
+              when(
+                () => mockUsersGetterCubit.state,
+              ).thenReturn(
+                UsersGetterState.done(
+                  users: List.generate(
+                    foundUsersCount,
+                    (index) => User(
+                      id: index,
+                      username: 'user$index',
+                      avatarUrl: 'url$index',
+                    ),
+                  ).toImmutableSet(),
+                ),
+              );
+            },
+          );
+
+          testWidgets(
+            '''
+
+WHEN the screen is rendered
+THEN a users list is displayed
+''',
+            (tester) async {
+              // ARRANGE
+
+              // ACT
+              await tester.pumpScreen(
+                screenWidget: const SelectionScreen(),
+              );
+
+              // ASSERT
+              expect(find.byType(UserTile), findsNWidgets(foundUsersCount));
             },
           );
         },
