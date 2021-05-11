@@ -2,17 +2,21 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../presentation/app.dart';
+import '../state_management/cubit/app_bloc_observer.dart';
 import 'dependency_injection.dart';
 import 'flavors.dart';
 
 Future<void> startApp(Flavor flavor) async {
   runZonedGuarded(
-    () {
+    () async {
       WidgetsFlutterBinding.ensureInitialized();
 
-      getIt.registerSingleton(flavor);
+      await injectDependencies(flavor);
+
+      Bloc.observer = AppBlocObserver();
 
       FlutterError.onError = (details) {
         log(
