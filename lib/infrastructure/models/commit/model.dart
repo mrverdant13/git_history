@@ -18,6 +18,8 @@ class CommitR with _$CommitR {
     required String message,
   }) = _CommitR;
 
-  factory CommitR.fromJson(Map<String, dynamic> json) =>
-      _$CommitRFromJson(json);
+  factory CommitR.fromJson(Map<String, dynamic> json) => CommitR(
+        sha: json['sha'] as String,
+        message: json['commit']['message'] as String,
+      );
 }
