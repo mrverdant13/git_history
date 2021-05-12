@@ -23,15 +23,15 @@ class GetCommitsException with _$GetCommitsException {
   const factory GetCommitsException.offline() = _GetCommitsExceptionOffline;
 }
 
-class CommitsPageData extends KtPair<Set<CommitR>, int> {
+class CommitsPageData extends KtPair<Set<CommitR>, int?> {
   CommitsPageData({
     required Set<CommitR> commits,
-    required int nextPageNumber,
+    required int? nextPageNumber,
   }) : super(
           commits,
           nextPageNumber,
         );
 
   Set<CommitR> get commits => first;
-  int get nextPageNumber => second;
+  int? get nextPageNumber => second;
 }
