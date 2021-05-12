@@ -1,9 +1,6 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_app_template/domain/entities/commit/entity.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../../../domain/use_cases/get_commits/use_case.dart';
 import '../../../models/commit/model.dart';
