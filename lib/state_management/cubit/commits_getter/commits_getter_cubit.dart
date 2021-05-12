@@ -14,10 +14,14 @@ class CommitsGetterCubit extends Cubit<CommitsGetterState> {
 
   final GetCommitsPageByRepoAndOwner _getCommitsPageByRepoAndOwner;
 
+  late RepoAndOwnerAndCommitPageNumber _lastRepoAndOwnerAndCommitPageNumber;
+
   Future<void> getNextCommitsByRepoAndOwner(
     RepoAndOwnerAndCommitPageNumber repoAndOwnerAndCommitPageNumber,
   ) async {
     emit(const CommitsGetterState.loading());
+
+    _lastRepoAndOwnerAndCommitPageNumber = repoAndOwnerAndCommitPageNumber;
 
     final failureOrCommits = await _getCommitsPageByRepoAndOwner(
       repoAndOwnerAndCommitPageNumber,
@@ -32,4 +36,8 @@ class CommitsGetterCubit extends Cubit<CommitsGetterState> {
       ),
     );
   }
+
+  Future<void> refreshPage() async => getNextCommitsByRepoAndOwner(
+        _lastRepoAndOwnerAndCommitPageNumber,
+      );
 }

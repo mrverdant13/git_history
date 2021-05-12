@@ -55,31 +55,36 @@ class GitCommitHistoryScreen extends StatelessWidget {
                   ? const Center(
                       child: Text('No commits found'),
                     )
-                  : ListView.builder(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      itemCount: commitsPage.commits.size,
-                      itemBuilder: (context, index) {
-                        final commitMsg =
-                            commitsPage.commits.iter.elementAt(index).message;
-
-                        final commitMsgs = commitMsg.split('\n');
-                        final mainCommitMsg = commitMsgs.first;
-                        final additionalCommitMsgs = commitMsgs.skip(1);
-
-                        final commitSha =
-                            commitsPage.commits.iter.elementAt(index).sha;
-
-                        return ExpansionTile(
-                          title: Text(mainCommitMsg),
-                          subtitle: Text(commitSha),
-                          children: [
-                            ...additionalCommitMsgs.map(
-                              (additionalCommitMsg) =>
-                                  Text(additionalCommitMsg),
-                            ),
-                          ],
-                        );
+                  : RefreshIndicator(
+                      onRefresh: () async {
+                        await context.read<CommitsGetterCubit>().refreshPage();
                       },
+                      child: ListView.builder(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        itemCount: commitsPage.commits.size,
+                        itemBuilder: (context, index) {
+                          final commitMsg =
+                              commitsPage.commits.iter.elementAt(index).message;
+
+                          final commitMsgs = commitMsg.split('\n');
+                          final mainCommitMsg = commitMsgs.first;
+                          final additionalCommitMsgs = commitMsgs.skip(1);
+
+                          final commitSha =
+                              commitsPage.commits.iter.elementAt(index).sha;
+
+                          return ExpansionTile(
+                            title: Text(mainCommitMsg),
+                            subtitle: Text(commitSha),
+                            children: [
+                              ...additionalCommitMsgs.map(
+                                (additionalCommitMsg) =>
+                                    Text(additionalCommitMsg),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
                     ),
               loading: () => const Center(
                 child: CircularProgressIndicator(),
