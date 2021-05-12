@@ -24,7 +24,7 @@ class RepositoryTile extends StatelessWidget {
               repository;
 
           context.router.push(
-            const GitCommitHistoryScreenRoute(),
+            GitCommitHistoryScreenRoute(),
           );
         },
       );

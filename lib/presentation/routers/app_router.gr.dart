@@ -25,8 +25,11 @@ class AppRouter extends _i1.RootStackRouter {
         barrierDismissible: false),
     GitCommitHistoryScreenRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i4.GitCommitHistoryScreen();
+        builder: (data) {
+          final args = data.argsAs<GitCommitHistoryScreenRouteArgs>(
+              orElse: () => const GitCommitHistoryScreenRouteArgs());
+          return _i4.GitCommitHistoryScreen(
+              commitsPageNumber: args.commitsPageNumber);
         },
         opaque: true,
         barrierDismissible: false)
@@ -46,9 +49,19 @@ class SelectionScreenRoute extends _i1.PageRouteInfo {
   static const String name = 'SelectionScreenRoute';
 }
 
-class GitCommitHistoryScreenRoute extends _i1.PageRouteInfo {
-  const GitCommitHistoryScreenRoute()
-      : super(name, path: '/git-commit-history-screen');
+class GitCommitHistoryScreenRoute
+    extends _i1.PageRouteInfo<GitCommitHistoryScreenRouteArgs> {
+  GitCommitHistoryScreenRoute({int commitsPageNumber = 1})
+      : super(name,
+            path: '/git-commit-history-screen',
+            args: GitCommitHistoryScreenRouteArgs(
+                commitsPageNumber: commitsPageNumber));
 
   static const String name = 'GitCommitHistoryScreenRoute';
+}
+
+class GitCommitHistoryScreenRouteArgs {
+  const GitCommitHistoryScreenRouteArgs({this.commitsPageNumber = 1});
+
+  final int commitsPageNumber;
 }
