@@ -5,4 +5,7 @@ extension ScreenDimensions on BuildContext {
     horizontal: 20.0,
     vertical: 15.0,
   );
+
+  static const userTilePadding = EdgeInsets.all(10.0);
+  static const repositoryTilePadding = EdgeInsets.all(10.0);
 }

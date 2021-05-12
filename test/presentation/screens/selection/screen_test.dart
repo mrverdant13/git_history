@@ -11,10 +11,10 @@ import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/pump_screen.dart';
 
-// class MockSelectionFormGroup extends Mock implements SelectionFormGroup {}
-
 class MockUsersGetterCubit extends MockCubit<UsersGetterState>
     implements UsersGetterCubit {}
+
+class FakeUsersGetterState extends Fake implements UsersGetterState {}
 
 void main() {
   group(
@@ -31,7 +31,7 @@ GIVEN a selection screen''',
 
       setUpAll(
         () {
-          registerFallbackValue(const UsersGetterState.idle());
+          registerFallbackValue(FakeUsersGetterState());
         },
       );
 
