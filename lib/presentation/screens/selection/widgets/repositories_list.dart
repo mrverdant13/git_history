@@ -10,7 +10,8 @@ class RepositoriesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       BlocBuilder<RepositoriesGetterCubit, RepositoriesGetterState>(
-        builder: (context, repositoriesGetterState) => repositoriesGetterState.maybeWhen(
+        builder: (context, repositoriesGetterState) =>
+            repositoriesGetterState.maybeWhen(
           loading: () => const Center(
             child: CircularProgressIndicator(),
           ),
