@@ -59,31 +59,44 @@ class GitCommitHistoryScreen extends StatelessWidget {
                       onRefresh: () async {
                         await context.read<CommitsGetterCubit>().refreshPage();
                       },
-                      child: ListView.builder(
+                      child: ListView.separated(
                         physics: const AlwaysScrollableScrollPhysics(),
                         itemCount: commitsPage.commits.size,
                         itemBuilder: (context, index) {
-                          final commitMsg =
-                              commitsPage.commits.iter.elementAt(index).message;
+                          final commit =
+                              commitsPage.commits.iter.elementAt(index);
+                          final commitMsg = commit.message;
 
-                          final commitMsgs = commitMsg.split('\n');
+                          final commitMsgs = commitMsg.split('\n\n');
                           final mainCommitMsg = commitMsgs.first;
                           final additionalCommitMsgs = commitMsgs.skip(1);
 
                           final commitSha =
                               commitsPage.commits.iter.elementAt(index).sha;
 
-                          return ExpansionTile(
-                            title: Text(mainCommitMsg),
-                            subtitle: Text(commitSha),
-                            children: [
-                              ...additionalCommitMsgs.map(
-                                (additionalCommitMsg) =>
-                                    Text(additionalCommitMsg),
-                              ),
-                            ],
+                          return Builder(
+                            key: ValueKey(commit.sha),
+                            builder: (context) => additionalCommitMsgs.isEmpty
+                                ? ListTile(
+                                    title: Text(mainCommitMsg),
+                                    subtitle: Text(commitSha),
+                                  )
+                                : ExpansionTile(
+                                    title: Text(mainCommitMsg),
+                                    subtitle: Text(commitSha),
+                                    expandedAlignment: Alignment.centerLeft,
+                                    expandedCrossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      ...additionalCommitMsgs.map(
+                                        (additionalCommitMsg) =>
+                                            Text(additionalCommitMsg),
+                                      ),
+                                    ],
+                                  ),
                           );
                         },
+                        separatorBuilder: (context, index) => const Divider(),
                       ),
                     ),
               loading: () => const Center(
