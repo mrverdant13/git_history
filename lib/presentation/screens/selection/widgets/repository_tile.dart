@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../domain/entities/repository/entity.dart';
 import '../../../../state_management/change_notifier/global_store/global_store_change_notifier.dart';
+import '../../../routers/app_router.gr.dart';
 import '../values/dimensions.dart';
 
 class RepositoryTile extends StatelessWidget {
@@ -21,7 +23,9 @@ class RepositoryTile extends StatelessWidget {
           context.read<GlobalStoreChangeNotifier>().selectedRepository =
               repository;
 
-          // TODO: navigate to commit history screen.
+          context.router.push(
+            const GitCommitHistoryScreenRoute(),
+          );
         },
       );
 }
