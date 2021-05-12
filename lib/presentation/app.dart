@@ -10,20 +10,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appRouter = AppRouter();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
           create: (context) => GlobalStoreChangeNotifier(),
         ),
+        ListenableProvider<AppRouter>(
+          create: (context) => AppRouter(),
+        ),
       ],
-      child: MaterialApp.router(
+      builder: (context, _) => MaterialApp.router(
         title: 'Flutter App Template (${kAppFlavor.tag})',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        routerDelegate: appRouter.delegate(),
-        routeInformationParser: appRouter.defaultRouteParser(),
+        routerDelegate: context.read<AppRouter>().delegate(),
+        routeInformationParser: context.read<AppRouter>().defaultRouteParser(),
       ),
     );
   }

@@ -31,4 +31,6 @@ class RepositoriesGetterCubit extends Cubit<RepositoriesGetterState> {
       ),
     );
   }
+
+  void reset() => emit(const RepositoriesGetterState.idle());
 }

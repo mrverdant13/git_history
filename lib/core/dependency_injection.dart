@@ -1,16 +1,22 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+import '../domain/facades/commits_repo/facade.dart';
 import '../domain/facades/repositories_repo/facade.dart';
 import '../domain/facades/users_repo/facade.dart';
+import '../domain/use_cases/get_commits/use_case.dart';
 import '../domain/use_cases/get_repositories/use_case.dart';
 import '../domain/use_cases/get_users/use_case.dart';
+import '../infrastructure/data_source/commits/remote/implementation.dart';
+import '../infrastructure/data_source/commits/remote/interface.dart';
 import '../infrastructure/data_source/repositories/remote/implementation.dart';
 import '../infrastructure/data_source/repositories/remote/interface.dart';
 import '../infrastructure/data_source/users/remote/implementation.dart';
 import '../infrastructure/data_source/users/remote/interface.dart';
+import '../infrastructure/facades/commits_repo.dart';
 import '../infrastructure/facades/repositories_repo.dart';
 import '../infrastructure/facades/users_repo.dart';
+import '../state_management/cubit/commits_getter/commits_getter_cubit.dart';
 import '../state_management/cubit/repositories_getter/repositories_getter_cubit.dart';
 import '../state_management/cubit/users_getter/users_getter_cubit.dart';
 import 'flavors.dart';
@@ -40,6 +46,11 @@ Future<void> injectDependencies(Flavor flavor) async {
       dio: getIt(),
     ),
   );
+  getIt.registerLazySingleton<CommitsRDS>(
+    () => CommitsRDSImp(
+      dio: getIt(),
+    ),
+  );
 
   // Facades
   getIt.registerLazySingleton<UsersRepo>(
@@ -50,6 +61,11 @@ Future<void> injectDependencies(Flavor flavor) async {
   getIt.registerLazySingleton<RepositoriesRepo>(
     () => RepositoriesRepoImp(
       repositoriesRDS: getIt(),
+    ),
+  );
+  getIt.registerLazySingleton<CommitsRepo>(
+    () => CommitsRepoImp(
+      commitsRDS: getIt(),
     ),
   );
 
@@ -64,6 +80,11 @@ Future<void> injectDependencies(Flavor flavor) async {
       repositoriesRepo: getIt(),
     ),
   );
+  getIt.registerLazySingleton<GetCommitsPageByRepoAndOwner>(
+    () => GetCommitsPageByRepoAndOwner(
+      commitsRepo: getIt(),
+    ),
+  );
 
   // State managers
   getIt.registerFactory<UsersGetterCubit>(
@@ -74,6 +95,11 @@ Future<void> injectDependencies(Flavor flavor) async {
   getIt.registerFactory<RepositoriesGetterCubit>(
     () => RepositoriesGetterCubit(
       getRepositoriesByNameAndOwner: getIt(),
+    ),
+  );
+  getIt.registerFactory<CommitsGetterCubit>(
+    () => CommitsGetterCubit(
+      getCommitsPageByRepoAndOwner: getIt(),
     ),
   );
 }
