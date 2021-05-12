@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/state_management/cubit/repositories_getter/repositories_getter_cubit.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../domain/entities/user/entity.dart';
@@ -25,6 +26,9 @@ class UserTile extends StatelessWidget {
           final formGroup = context.read<SelectionFormGroup>();
           formGroup.usernameTextControl.markAsDisabled();
           formGroup.repositoryNameTextControl.markAsEnabled();
+
+          context.read<RepositoriesGetterCubit>().reset();
+          formGroup.repositoryNameTextControl.reset();
         },
       );
 }
