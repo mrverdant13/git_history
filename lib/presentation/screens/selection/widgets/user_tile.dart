@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../domain/entities/user/entity.dart';
 import '../../../../state_management/change_notifier/global_store/global_store_change_notifier.dart';
+import '../values/dimensions.dart';
 
 class UserTile extends StatelessWidget {
   const UserTile({
@@ -14,7 +15,7 @@ class UserTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ListTile(
-        contentPadding: const EdgeInsets.all(10.0),
+        contentPadding: ScreenDimensions.userTilePadding,
         leading: Image.network(user.avatarUrl),
         title: Text(user.username),
         onTap: () {
