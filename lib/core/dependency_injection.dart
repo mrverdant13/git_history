@@ -16,6 +16,7 @@ import '../infrastructure/data_source/users/remote/interface.dart';
 import '../infrastructure/facades/commits_repo.dart';
 import '../infrastructure/facades/repositories_repo.dart';
 import '../infrastructure/facades/users_repo.dart';
+import '../state_management/cubit/commits_getter/commits_getter_cubit.dart';
 import '../state_management/cubit/repositories_getter/repositories_getter_cubit.dart';
 import '../state_management/cubit/users_getter/users_getter_cubit.dart';
 import 'flavors.dart';
@@ -94,6 +95,11 @@ Future<void> injectDependencies(Flavor flavor) async {
   getIt.registerFactory<RepositoriesGetterCubit>(
     () => RepositoriesGetterCubit(
       getRepositoriesByNameAndOwner: getIt(),
+    ),
+  );
+  getIt.registerFactory<CommitsGetterCubit>(
+    () => CommitsGetterCubit(
+      getCommitsPageByRepoAndOwner: getIt(),
     ),
   );
 }
