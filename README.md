@@ -139,7 +139,3 @@ Submit a [new issue report][new_project_issues_link] if you find any bug or have
 [new_project_issues_link]: https://github.com/mrverdant13/git_history/issues/new/choose
 [remove_from_coverage_link]: https://pub.dev/packages/remove_from_coverage
 [very_good_cli_link]: https://github.com/VeryGoodOpenSource/very_good_cli
-
-```
-
-```
