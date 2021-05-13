@@ -31,6 +31,7 @@ dependencies:
   # Internationalization
   flutter_localizations:
     sdk: flutter
+  intl: ^0.17.0
 
   # Functional programming
   dartz: ^0.10.0-nullsafety.1
@@ -91,6 +92,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  # Flutter generation
+  generate: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
