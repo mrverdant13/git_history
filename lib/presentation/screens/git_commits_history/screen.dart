@@ -55,8 +55,8 @@ class GitCommitHistoryScreen extends StatelessWidget {
           builder: (context, commitsGetterState) =>
               commitsGetterState.maybeWhen(
             done: (commitsPage) => commitsPage.commits.isEmpty()
-                ? const Center(
-                    child: Text('No commits found'),
+                ? Center(
+                    child: Text(l10n.noCommitsMessage),
                   )
                 : RefreshIndicator(
                     onRefresh: () async {
