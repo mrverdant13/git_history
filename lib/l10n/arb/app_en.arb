@@ -3,5 +3,25 @@
     "userSearchInstructions": "Enter a GitHub username and select the desired user",
     "@userSearchInstructions": {
         "description": "Instructions shown to search GitHub users"
+    },
+    "usernameFieldLabel": "GitHub username",
+    "@usernameFieldLabel": {
+        "description": "Label for the GitHub username text field"
+    },
+    "searchButtonLabel": "Search",
+    "@searchButtonLabel": {
+        "description": "Label for the button to trigger searches"
+    },
+    "repositorySearchInstructions": "Enter the name of a repository belonging to the selected GitHub user",
+    "@repositorySearchInstructions": {
+        "description": "Instructions shown to search repositories belonging to the selected GitHub user"
+    },
+    "repositoryNameFieldLabel": "GitHub repository",
+    "@repositoryNameFieldLabel": {
+        "description": "Label for the GitHub repository text field"
+    },
+    "commitHistoryTitle": "Commit History",
+    "@commitHistoryTitle": {
+        "description": "Title of the commit history screen"
     }
 }
