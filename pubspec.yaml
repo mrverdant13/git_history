@@ -28,6 +28,10 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Internationalization
+  flutter_localizations:
+    sdk: flutter
+
   # Functional programming
   dartz: ^0.10.0-nullsafety.1
 
