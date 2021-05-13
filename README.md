@@ -220,7 +220,7 @@ To generate coverage report within the `coverage` folder, run one of the followi
 ```sh
 # Linux/MacOS
 # Generate coverage report
-$ genhtml coverage/lcov.info -o coverage/
+$ genhtml coverage/lcov.info -o coverage/html/
 
 # Windows
 # Install `lcov` utils (Chocolatey is prerequisite)
@@ -234,10 +234,10 @@ To open the generated coverage report, run one of the following commands accordi
 ```sh
 # Linux/MacOS
 # Generate coverage report
-$ open coverage/index.html
+$ open coverage/html/index.html
 
 # Windows
-$ start coverage/index.html
+$ start coverage/html/index.html
 ```
 
 ---
