@@ -1,0 +1,39 @@
+{
+    "@@locale": "es",
+    "userSearchInstructions": "Ingrese un nombre de usuario de GitHub y seleccione el usuario deseado",
+    "@userSearchInstructions": {
+        "description": "Instrucciones mostradas para buscar usuarios de GitHub"
+    },
+    "usernameFieldLabel": "Nombre de usuario de GitHub",
+    "@usernameFieldLabel": {
+        "description": "Etiqueta del campo de texto del nombre de usuario de GitHub"
+    },
+    "noUsersMessage": "No se encontraron usuarios",
+    "@noUsersMessage": {
+        "description": "Mensaje mostrado al no encontrar usuarios"
+    },
+    "repositorySearchInstructions": "Ingrese el nombre de un repositorio perteneciente al usuario de GitHub seleccionado",
+    "@repositorySearchInstructions": {
+        "description": "Instrucciones mostradas para buscar repositorios pertenecientes al usuario de GitHub seleccionado"
+    },
+    "repositoryNameFieldLabel": "Repositorio de GitHub",
+    "@repositoryNameFieldLabel": {
+        "description": "Etiqueta del campo de texto del nombre del repositorio"
+    },
+    "noRepositoriesMessage": "No se encontraron repositorios",
+    "@noRepositoriesMessage": {
+        "description": "Mensaje mostrado al no encontrar repositorios"
+    },
+    "commitHistoryTitle": "Historial De Commits",
+    "@commitHistoryTitle": {
+        "description": "Título de la pantalla de historial de commits"
+    },
+    "noCommitsMessage": "No se encontraron commits",
+    "@noCommitsMessage": {
+        "description": "Mensaje mostrado al no encontrar commits"
+    },
+    "searchButtonLabel": "Buscar",
+    "@searchButtonLabel": {
+        "description": "Etiqueta del botón que dispara búsquedas"
+    }
+}

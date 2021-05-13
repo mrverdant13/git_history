@@ -1,0 +1,39 @@
+{
+    "@@locale": "en",
+    "userSearchInstructions": "Enter a GitHub username and select the desired user",
+    "@userSearchInstructions": {
+        "description": "Instructions shown to search GitHub users"
+    },
+    "usernameFieldLabel": "GitHub username",
+    "@usernameFieldLabel": {
+        "description": "Label for the GitHub username text field"
+    },
+    "noUsersMessage": "No users found",
+    "@noUsersMessage": {
+        "description": "Message shown when no users are found"
+    },
+    "repositorySearchInstructions": "Enter the name of a repository belonging to the selected GitHub user",
+    "@repositorySearchInstructions": {
+        "description": "Instructions shown to search repositories belonging to the selected GitHub user"
+    },
+    "repositoryNameFieldLabel": "GitHub repository",
+    "@repositoryNameFieldLabel": {
+        "description": "Label for the GitHub repository text field"
+    },
+    "noRepositoriesMessage": "No repositories found",
+    "@noRepositoriesMessage": {
+        "description": "Message shown when no repositories are found"
+    },
+    "commitHistoryTitle": "Commit History",
+    "@commitHistoryTitle": {
+        "description": "Title of the commit history screen"
+    },
+    "noCommitsMessage": "No commits found",
+    "@noCommitsMessage": {
+        "description": "Message shown when no commits are found"
+    },
+    "searchButtonLabel": "Search",
+    "@searchButtonLabel": {
+        "description": "Label for the button to trigger searches"
+    }
+}

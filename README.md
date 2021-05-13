@@ -15,6 +15,7 @@ Created with [mrverdant13's Flutter project template][mrverdant13_flutter_projec
 |                                           | Android | iOS | MacOS | Linux | Windows | Web |
 | :---------------------------------------- | :-----: | :-: | :---: | :---: | :-----: | :-: |
 | Flutter-level flavors                     |   ✔️    | ✔️  |  ✔️   |  ✔️   |   ✔️    | ✔️  |
+| Internationalization                      |   ✔️    | ❌  |  ❌   |  ❌   |   ❌    | ❌  |
 | Native flavors                            |   ✔️    | ❌  |  ❌   |  ❌   |   ❌    | ❌  |
 | Different app icon per flavor             |   ✔️    | ❌  |  ❌   |  ❌   |   ❌    | ❌  |
 | Different app splash per flavor           |   ✔️    | ❌  |  ❌   |  ❌   |   ❌    | ❌  |
@@ -81,6 +82,121 @@ $ flutter run --flavor stg --target lib/main_stg.dart
 
 ---
 
+# Internationalization (app languages)
+
+This project relies on [flutter_localizations][flutter_localizations_link] and follows the [official internationalization guide for Flutter][internationalization_link].
+
+## Adding localized values
+
+1. To add a new localizable string, open the `app_<locale ID>.arb` file at the `lib/l10n/arb/` folder.
+
+   ```arb
+   {
+       "@@locale": "<locale ID>",
+
+       ···
+
+       "<valueKey>": "<value>",
+       "@<valueKey>": {
+           "description": "<description>"
+       },
+
+       ···
+
+   }
+   ```
+
+2. Then add a new key, value and description
+
+   ```arb
+   {
+       "@@locale": "<locale ID>",
+
+       ···
+
+       "<valueKey>": "<value>",
+       "@<valueKey>": {
+           "description": "<description>"
+       },
+
+       ···
+
+       "<newValueKey>": "<new value>",
+       "@<newValueKey>": {
+           "description": "<new value description>"
+       }
+   }
+   ```
+
+3. Use the new string
+
+   ```dart
+   import 'package:<app_package_name>/l10n/l10n.dart';
+
+   ···
+
+     @override
+     Widget build(BuildContext context) {
+       final l10n = context.l10n;
+       return Text(l10n.<newValueKey>);
+     }
+
+   ···
+
+   ```
+
+## Adding translations
+
+1. For each supported locale, add a new ARB file in `lib/l10n/arb`.
+
+   ```
+   ├── lib
+   │   ├── l10n
+   │   │   ├── arb
+   │   │   │   ├── app_<locale ID>.arb
+   │   │   │   └── app_<new locale ID>.arb
+   ```
+
+2. Add the translated strings to each `.arb` file:
+
+   `app_<locale ID>.arb`
+
+   ```arb
+   {
+       "@@locale": "<locale ID>",
+
+       ···
+
+       "<valueKey>": "<value for locale ID>",
+       "@<valueKey>": {
+           "description": "<description for locale ID>",
+       },
+
+       ···
+
+   }
+   ```
+
+   `app_<new locale ID>.arb`
+
+   ```arb
+   {
+       "@@locale": "<new locale ID>",
+
+       ···
+
+       "<valueKey>": "<value for new locale ID>",
+       "@<valueKey>": {
+           "description": "<description for new locale ID>"
+       },
+
+       ···
+
+   }
+   ```
+
+---
+
 # Testing
 
 To run all unit and widget tests, execute the following command:
@@ -132,6 +248,8 @@ Submit a [new issue report][new_project_issues_link] if you find any bug or have
 
 [chocolatey_link]: https://chocolatey.org/
 [flutter_link]: https://flutter.dev/
+[flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
+[internationalization_link]: https://flutter.dev/docs/development/accessibility-and-localization/internationalization
 [lint_badge]: https://img.shields.io/badge/style-lint-4BC0F5.svg
 [lint_package_link]: https://pub.dev/packages/lint
 [mrverdant13_link]: https://github.com/mrverdant13/
