@@ -1,0 +1,7 @@
+{
+    "@@locale": "es",
+    "userSearchInstructions": "Ingrese un nombre de usuario de GitHub y seleccione el usuario deseado",
+    "@userSearchInstructions": {
+        "description": "Instrucciones mostradas para buscar usuarios de GitHub"
+    }
+}
