@@ -8,9 +8,9 @@
     "@usernameFieldLabel": {
         "description": "Label for the GitHub username text field"
     },
-    "searchButtonLabel": "Search",
-    "@searchButtonLabel": {
-        "description": "Label for the button to trigger searches"
+    "noUsersMessage": "No users found",
+    "@noUsersMessage": {
+        "description": "Message shown when no users are found"
     },
     "repositorySearchInstructions": "Enter the name of a repository belonging to the selected GitHub user",
     "@repositorySearchInstructions": {
@@ -20,8 +20,20 @@
     "@repositoryNameFieldLabel": {
         "description": "Label for the GitHub repository text field"
     },
+    "noRepositoriesMessage": "No repositories found",
+    "@noRepositoriesMessage": {
+        "description": "Message shown when no repositories are found"
+    },
     "commitHistoryTitle": "Commit History",
     "@commitHistoryTitle": {
         "description": "Title of the commit history screen"
+    },
+    "noCommitsMessage": "No commits found",
+    "@noCommitsMessage": {
+        "description": "Message shown when no commits are found"
+    },
+    "searchButtonLabel": "Search",
+    "@searchButtonLabel": {
+        "description": "Label for the button to trigger searches"
     }
 }

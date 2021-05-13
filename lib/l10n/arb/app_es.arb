@@ -8,9 +8,9 @@
     "@usernameFieldLabel": {
         "description": "Etiqueta del campo de texto del nombre de usuario de GitHub"
     },
-    "searchButtonLabel": "Buscar",
-    "@searchButtonLabel": {
-        "description": "Etiqueta del botón que dispara búsquedas"
+    "noUsersMessage": "No se encontraron usuarios",
+    "@noUsersMessage": {
+        "description": "Mensaje mostrado al no encontrar usuarios"
     },
     "repositorySearchInstructions": "Ingrese el nombre de un repositorio perteneciente al usuario de GitHub seleccionado",
     "@repositorySearchInstructions": {
@@ -20,8 +20,20 @@
     "@repositoryNameFieldLabel": {
         "description": "Etiqueta del campo de texto del nombre del repositorio"
     },
+    "noRepositoriesMessage": "No se encontraron repositorios",
+    "@noRepositoriesMessage": {
+        "description": "Mensaje mostrado al no encontrar repositorios"
+    },
     "commitHistoryTitle": "Historial De Commits",
     "@commitHistoryTitle": {
         "description": "Título de la pantalla de historial de commits"
+    },
+    "noCommitsMessage": "No se encontraron commits",
+    "@noCommitsMessage": {
+        "description": "Mensaje mostrado al no encontrar commits"
+    },
+    "searchButtonLabel": "Buscar",
+    "@searchButtonLabel": {
+        "description": "Etiqueta del botón que dispara búsquedas"
     }
 }
