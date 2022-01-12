@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_app_template/domain/entities/user/entity.dart';
 import 'package:flutter_app_template/domain/entities/repository/entity.dart';
+import 'package:flutter_app_template/domain/entities/user/entity.dart';
 import 'package:flutter_app_template/domain/facades/repositories_repo/facade.dart';
 import 'package:flutter_app_template/domain/use_cases/get_repositories/use_case.dart';
 import 'package:flutter_test/flutter_test.dart';

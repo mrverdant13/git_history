@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_app_template/domain/entities/commit/entity.dart';
 import 'package:flutter_app_template/domain/entities/repository/entity.dart';
 import 'package:flutter_app_template/domain/entities/user/entity.dart';
-import 'package:flutter_app_template/domain/entities/commit/entity.dart';
 import 'package:flutter_app_template/domain/facades/commits_repo/facade.dart';
 import 'package:flutter_app_template/domain/use_cases/get_commits/use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
