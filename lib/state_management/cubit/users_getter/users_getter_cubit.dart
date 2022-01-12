@@ -10,7 +10,7 @@ part 'users_getter_cubit.freezed.dart';
 class UsersGetterCubit extends Cubit<UsersGetterState> {
   UsersGetterCubit({
     required GetUsersByUsername getUsersByUsername,
-  })   : _getUsersByUsername = getUsersByUsername,
+  })  : _getUsersByUsername = getUsersByUsername,
         super(const UsersGetterState.idle());
 
   final GetUsersByUsername _getUsersByUsername;
